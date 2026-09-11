@@ -235,6 +235,44 @@ section{ position:relative; padding:150px 5vw; }
   letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint);
 }
 
+/* ============ Film & Motion ============ */
+.film{ padding-top:20px; }
+.film .work-intro a{ color:var(--gold-soft); border-bottom:1px solid rgba(228,201,136,.35); transition:border-color .3s; }
+.film .work-intro a:hover{ border-color:var(--gold-soft); }
+.film-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; max-width:1100px; margin:0 auto;
+}
+.film-item{
+  position:relative; display:block; overflow:hidden; aspect-ratio:9/16; background:var(--bg-alt);
+}
+.film-item img{
+  width:100%; height:100%; object-fit:cover; transition:transform 1s var(--ease), filter .6s;
+  filter:saturate(.92) contrast(1.02) brightness(.85);
+}
+.film-item:hover img{ transform:scale(1.08); filter:saturate(1) contrast(1.02) brightness(.7); }
+.film-item::after{
+  content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,10,8,.1) 40%, rgba(11,10,8,.85) 100%);
+}
+.film-play{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px;
+  border:1px solid rgba(244,239,230,.6); border-radius:50%; z-index:1;
+  display:flex; align-items:center; justify-content:center; transition:transform .4s var(--ease), border-color .4s, background .4s;
+}
+.film-play::before{
+  content:''; width:0; height:0; margin-left:4px;
+  border-top:10px solid transparent; border-bottom:10px solid transparent; border-left:16px solid var(--ink);
+}
+.film-item:hover .film-play{ transform:translate(-50%,-50%) scale(1.12); border-color:var(--gold); background:rgba(201,162,75,.15); }
+.film-caption{
+  position:absolute; left:22px; right:22px; bottom:22px; z-index:1;
+  font-family:var(--serif); font-style:italic; font-size:21px; color:var(--ink);
+}
+.film-caption span{
+  display:block; font-family:var(--sans); font-style:normal; font-size:10px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--gold-soft); margin-top:5px;
+}
+.film-more{ display:block; width:max-content; margin:50px auto 0; }
+
 /* ============ Brands / Clients ============ */
 .clients{ text-align:center; padding-top:130px; padding-bottom:110px; }
 .clients .section-title{ margin:16px auto 0; max-width:640px; }
@@ -332,6 +370,7 @@ section{ position:relative; padding:150px 5vw; }
   .gallery-item.span-wide{ grid-column:span 2; }
   .service-grid{ grid-template-columns:repeat(2, 1fr); }
   .brand-grid{ grid-template-columns:repeat(3, 1fr); }
+  .film-grid{ grid-template-columns:1fr; max-width:420px; }
 }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior:auto; }
