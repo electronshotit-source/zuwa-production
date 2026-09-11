@@ -286,16 +286,36 @@ section{ position:relative; padding:150px 5vw; }
 }
 .brand{
   border-right:1px solid var(--line); border-bottom:1px solid var(--line);
-  padding:38px 20px; display:flex; align-items:center; justify-content:center;
-  transition:background .4s;
+  padding:34px 18px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:16px; transition:background .4s;
 }
 .brand:hover{ background:var(--bg-alt); }
-.brand span{
-  font-family:var(--serif); font-style:italic; font-weight:500; font-size:21px; color:var(--ink-dim);
-  letter-spacing:.01em; transition:color .35s, transform .35s var(--ease);
-  text-align:center;
+.brand-logo{
+  height:36px; display:flex; align-items:center; justify-content:center;
+  transition:transform .35s var(--ease);
 }
-.brand:hover span{ color:var(--gold-soft); transform:translateY(-2px); }
+.brand-logo img{
+  max-height:100%; max-width:130px; width:auto; display:block;
+  filter:invert(1) grayscale(1) brightness(1.35) contrast(.9); opacity:.68;
+  transition:opacity .35s;
+}
+.brand-mono{
+  width:36px; height:36px; border-radius:50%; border:1px solid var(--line);
+  transition:border-color .35s, background .35s;
+}
+.brand-mono span{
+  font-family:var(--serif); font-style:italic; font-weight:500; font-size:13px; color:var(--ink-dim);
+  transition:color .35s;
+}
+.brand-name{
+  font-size:11px; letter-spacing:.1em; color:var(--ink-dim); text-align:center;
+  transition:color .35s;
+}
+.brand:hover .brand-logo{ transform:translateY(-3px); }
+.brand:hover .brand-logo img{ opacity:1; }
+.brand:hover .brand-mono{ border-color:var(--gold); background:rgba(201,162,75,.1); }
+.brand:hover .brand-mono span{ color:var(--gold-soft); }
+.brand:hover .brand-name{ color:var(--gold-soft); }
 .clients-more{
   margin-top:36px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint);
 }
